@@ -25,30 +25,30 @@
 		<h1>Lista Empleado</h1>
 		
 		<div class="row" style="margin-top: 5%">
-			<div class="col-md-4">
-				<label class="control-label" for="id_nombre">Nombre</label> 
-			</div>	
-			<div class="col-md-5">
-				<input	class="form-control" type="text" id="id_nombre">
-			</div>
+				<div class="col-md-4">
+					<label class="control-label" for="id_nombre">Nombre</label>
+				</div>
+				<div class="col-md-5">
+					<input	class="form-control" type="text" id="id_nombre">
+				</div>
 		</div>
 		<div class="row" style="margin-top: 1%">
-			<div class="col-md-4">
-				<label class="control-label" for="id_pais">País</label> 
-			</div>	
-			<div class="col-md-5">
-				<select class="form-control" id="id_pais" name="pais">
-					<option value="-1">[Seleccione]</option>
-				</select>
-			</div>
+				<div class="col-md-4">
+					<label class="control-label" for="id_pais">País</label>
+				</div>
+				<div class="col-md-5">
+					<select	class="form-control" id="id_pais">
+						<option value="-1">[Seleccione]</option>
+					</select>
+				</div>
 		</div>
 		<div class="row" style="margin-top: 1%">
-			<div class="col-md-4">
-				<label class="control-label" for="id_estado">Estado</label> 
-			</div>	
-			<div class="col-md-5">
-				<input type="checkbox" class="custom-control-input" id="id_estado" checked="checked"  name="estado" value="1"/>
-			</div>
+				<div class="col-md-4">
+					<label class="control-label" for="id_estado">Estado</label>
+				</div>
+				<div class="col-md-5">
+					<input type="checkbox" class="custom-control-input" id="id_estado" checked="checked" />
+				</div>
 		</div>
 		<div class="row" style="margin-top: 1%">
 			<div class="col-md-3">
@@ -101,17 +101,17 @@
 		$("#id_btn_filtro").click(function() {
 			var vnombre = $("#id_nombre").val();
 			var vpais = $("#id_pais").val();
-			var vestado = $("#id_estado").is(":checked") ? 1 : 0;
+			var vestado = $("#id_estado").is(":checked") ?  1 : 0;
 			var vfecIni = $("#id_fecha_inicio").val();
 			var vfecFin = $("#id_fecha_fin").val();
 			
-			console.log("vombre ==> " + vnombre);
-			console.log("vpais ==> " + vpais);
-			console.log("vestado ==> " + vestado);
-			console.log("vfecIni ==> " + vfecIni);  
-			console.log("vfecFin ==> " + vfecFin);
+			console.log(">> vnombre >> " + vnombre);
+			console.log(">> vpais >> " + vpais);
+			console.log(">> vestado >> " + vestado);
+			console.log(">> vfecIni >> " + vfecIni);
+			console.log(">> vfecFin >> " + vfecFin);
 			
-			$.getJSON("listaEmpleadoComplejo", {"nombre":vnombre,"pais":vpais,"estado":vestado,"fechaInicio":vfecIni,"fechaFin":vfecFin}, function(data) {
+			$.getJSON("listaEmpleadoComplejo", {"nombre":vnombre,"pais":vpais, "estado": vestado, "fechaInicio":vfecIni, "fechaFin":vfecFin}, function(data) {
 				agregarGrilla(data);
 			});
 		});
@@ -130,7 +130,7 @@
 					info:true,
 					scrollY: 305,
 			        scroller: {
-			            loadingIndicator: true
+			            loadingIndicator: true  
 			        },
 					columns:[
 						{data: "idEmpleado",className:'text-center'},
